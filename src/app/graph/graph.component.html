@@ -1,0 +1,366 @@
+
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+  <div class="jumbotron bg-theme">
+    <h1 class="display-4 text-center">CIRCLES!!!!</h1>
+    <p class="lead alert text-center alert-danger">This is a simple Graphical Representation of BML Munjal University Managment Schema</p>
+    <hr class="my-4">
+
+    <a class="btn btn-danger btn-lg " style="margin-left: 43%;" href="#" role="button">Learn more</a>
+  </div>
+  </div>
+</div>
+</div>
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+  <div class="jumbotron fc-bg-success">
+    <h1 class="display-3 text-center">Preview</h1>
+    <p class="lead alert text-center alert-danger">This is a simple Preview of the Database</p>
+    <hr class="my-4">
+
+    <button class="node1" (cdkDragMoved)="node1to2line.position()"
+    #node1to2line="ldrConnector" [ldrConnectTo]="node2" [ldrOptions]="{path:'magnet', color: '#077542', middleLabel: 'childNode'}"
+    cdkDrag>  BML MUNJAL UNIVERSITY
+  </button>
+
+  <button #node2 class="node1" #node2to3line="ldrConnector" [ldrOptions]="{color: '#3d9cc2', path: 'magnet', size:3, middleLabel: 'childNode'}" (cdkDragMoved)="node1to2line.position()" (cdkDragMoved) = "node2to3line.position()"  [ldrConnectTo]="node3" style="margin-left: 10rem;" cdkDrag>
+    Schools
+  </button>
+
+
+  <button #node3 class="node1" (cdkDragMoved)="node3to4line.position()"
+    #node3to4line="ldrConnector" [ldrConnectTo]="node4" [ldrOptions]="{path:'magnet', color: '#077542', middleLabel: 'childNode'}"
+    cdkDrag>  Programmes
+  </button>
+
+  <button #node4 class="node1" (cdkDragMoved)="node4to5line.position()"
+    #node4to5line="ldrConnector" [ldrConnectTo]="node5" [ldrOptions]="{path:'magnet', color: '#077542', middleLabel: 'childNode'}"
+    cdkDrag>  Departments
+  </button>
+
+  <button #node5 class="node1" (cdkDragMoved)="node4to5line.position()"  style="margin-left: 7rem;" cdkDrag>
+    Students
+  </button>
+  </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="container ">
+  <div class="row jumbotron">
+    <div class="col-12 mt-5 mb-5 text-center">
+
+      <div class="alert alert-warning" role="alert">
+        Please Select The School
+      </div>
+
+      <select class="form-select" aria-label="Default select example" (change)="getProgramme($event)" >
+        <option>SCHOOLS</option>
+        <option *ngFor = "let school of schools[0].Nodes" value={{school}}  >{{school}}</option>
+
+      </select>
+
+      <div *ngIf = "display0">
+        <div class="alert alert-warning mt-3" role="alert" >
+          Please Select The Programme
+        </div>
+
+        <select class="form-select" aria-label="Default select example"  (change)="getDept($event)" >
+          <option>Programmes</option>
+          <option *ngFor = "let prog of programmes[0].Nodes" value={{prog}}  >{{prog}}</option>
+
+        </select>
+
+
+
+      </div>
+
+      <div *ngIf = "display1">
+        <div class="alert alert-warning mt-3" role="alert" >
+          Please Select The Department
+        </div>
+
+        <select class="form-select" aria-label="Default select example" (change)="loadChartDisplay($event)" >
+
+          <option>Departments</option>
+          <option *ngFor = "let dept of departments[0].Nodes" value={{dept}}  >{{dept}}</option>
+
+        </select>
+
+
+
+      </div>
+
+
+
+      <a *ngIf = "display3" (click)="loadchart()" class="btn btn-danger btn-lg mt-5 text-white " style="margin-left:7%;">Load Chart</a>
+
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 mb-5" *ngIf = "showNode">
+  <div class="row">
+    <div class="alert alert-success" role="alert">
+      STUDENTS
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf = "showNode">
+  <div class="row">
+    <div class="col-7">
+      <div class="rootNode" *ngIf = "showNode">
+
+
+        <div style=" min-height: 100vh ;border: 2px solid black;" *ngIf = "showNode">
+
+
+
+          <div class="myDIV mt-5"  style=" min-height: 100vh; width: 100%;" *ngIf = "showNode">
+
+
+            <button #school  class="departmentNode" id="Ellipse_10"   (click)="showSclStudents()"
+            >
+              {{scl}}
+            </button>
+
+            <button #program class="departmentNode" id="Ellipse_10"  style="margin-left: 3rem;"
+
+            [ldrConnectTo]="school" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin-left:10rem"  cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()"
+            (click)="showProgStudents()">
+              {{prog}}
+            </button>
+
+
+
+              <button  class="departmentNode" id="Ellipse_10"  style="margin-left: 3rem;"
+              [ldrConnectTo]="program" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin-left:10rem"  cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()"
+              #parentNode (click)="showDeptStudents()">
+                {{dept}}
+              </button>
+
+              <div *ngIf="displayDeptStudentNodes">
+                <button #studentNode  (click)="StdDetails(student.Name)" class="studentNode" [ldrConnectTo]="parentNode" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin:1rem" *ngFor="let student of Deptstudents[0]?.Student" cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()" >
+                  {{student.Name}}
+                </button>
+              </div>
+
+              <div *ngIf="displayProgStudentNodes">
+                <button #studentNode (click)="StdDetails(student.Name)" class="studentNode" [ldrConnectTo]="program" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin:7rem" *ngFor="let student of Progstudents[0]?.Student" cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()" >
+                  {{student.Name}}
+                </button>
+              </div>
+
+              <div *ngIf="displaySclStudentNodes">
+                <button #studentNode (click)="StdDetails(student.Name)" class="studentNode" [ldrConnectTo]="school" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin:10rem" *ngFor="let student of Sclstudents[0]?.Student" cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()" >
+                  {{student.Name}}
+                </button>
+              </div>
+
+          </div>
+
+       </div>
+
+      </div>
+
+    </div>
+    <div class="col-5">
+      <div class="jumbotron" *ngIf= "details">
+        <h5 class="display-5">Student Details</h5>
+        <table class="table table-warning table-hover p-3">
+          <tbody>
+            <tr>
+              <th scope="row">Student Name</th>
+              <td>{{studentNAME}}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Student RegstrationID</th>
+              <td>{{studentID}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Student Email</th>
+              <td>{{studentEmail}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Student Contact</th>
+              <td>{{studentContact}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Batch</th>
+              <td>{{batch}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Course</th>
+              <td>{{studentCourse}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Programme</th>
+              <td>{{studentProgramme}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Department</th>
+              <td>{{studentDepartment}}</td>
+            </tr>
+
+
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="container mt-5 mb-5" *ngIf = "showNode">
+  <div class="row">
+    <div class="alert alert-success" role="alert">
+      FACULTY
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <div class="rootNode" *ngIf = "showFacNode">
+
+
+        <div style=" min-height: 100vh ;border: 2px solid black;" *ngIf = "showNode">
+
+
+
+          <div class="myDIV mt-5"  style=" min-height: 100vh; width: 100%;" *ngIf = "showNode">
+
+
+            <button #school  class="departmentNode" id="Ellipse_10"   (click)="showSclFaculty()"
+            >
+              {{scl}}
+            </button>
+
+            <button #program class="departmentNode" id="Ellipse_10"  style="margin-left: 3rem;"
+
+            [ldrConnectTo]="school" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin-left:10rem"  cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()"
+            (click)="showProgFaculty()">
+              {{prog}}
+            </button>
+
+
+
+              <button  class="departmentNode" id="Ellipse_10"  style="margin-left: 3rem;"
+              [ldrConnectTo]="program" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin-left:10rem"  cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()"
+              #parentNode (click)="showDeptFaculty()">
+                {{dept}}
+              </button>
+
+
+
+              <div *ngIf="displayDeptFacNodes">
+                <button #studentNode  (click)="StdDetails(faculty.Name)" class="studentNode" [ldrConnectTo]="parentNode" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin:1rem" *ngFor="let faculty of Deptfaculty" cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()" >
+                  {{faculty?.Faculty.Name}}
+                </button>
+              </div>
+
+              <div *ngIf="displayProgFacNodes">
+                <button #studentNode (click)="StdDetails(faculty.Name)" class="studentNode" [ldrConnectTo]="program" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin:7rem" *ngFor="let faculty of SclFaculty" cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()" >
+                  {{faculty?.Faculty.Name}}
+                </button>
+              </div>
+
+              <div *ngIf="displaySclFacNodes">
+                <button #studentNode (click)="StdDetails(faculty.Name)" class="studentNode" [ldrConnectTo]="school" [ldrOptions]="{startPlug: 'arrow3', endPlug:'behind', path:'straight'}" id="Ellipse_11" style="margin:10rem" *ngFor="let faculty of SclFaculty" cdkDrag #child="ldrConnector" (cdkDragMoved)="child.position()" >
+                  {{faculty?.Faculty.Name}}
+                </button>
+              </div>
+
+
+          </div>
+
+       </div>
+
+      </div>
+
+    </div>
+    <div class="col-5">
+      <div class="jumbotron" *ngIf= "details">
+        <h5 class="display-5">Student Details</h5>
+        <table class="table table-warning table-hover p-3">
+          <tbody>
+            <tr>
+              <th scope="row">Student Name</th>
+              <td>{{studentNAME}}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Student RegstrationID</th>
+              <td>{{studentID}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Student Email</th>
+              <td>{{studentEmail}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Student Contact</th>
+              <td>{{studentContact}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Batch</th>
+              <td>{{batch}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Course</th>
+              <td>{{studentCourse}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Programme</th>
+              <td>{{studentProgramme}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Department</th>
+              <td>{{studentDepartment}}</td>
+            </tr>
+
+
+
+            <!-- <tr>
+              <th scope="row">Batch</th>
+              <td>{{data[0][1].Batch}}</td>
+            </tr>
+            <tr>
+              <th scope="row"  >Courses</th>
+              <td>{{data[1][0].Course}}</td>
+            </tr>
+            <tr>
+              <th scope="row"  >Programme</th>
+              <td>{{data[2][0].Programme.Name}}</td>
+            </tr>
+            <tr>
+              <th scope="row"  >Department</th>
+              <td>{{data[3][0].Department.Name}}</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+

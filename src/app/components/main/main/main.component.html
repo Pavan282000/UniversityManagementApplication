@@ -1,0 +1,967 @@
+<div class="container-fluid">
+
+  <!--Header-->
+  <div class="row header shadow-sm">
+
+      <!--Logo-->
+      <div class="col-sm-3 pl-0 text-center header-logo">
+         <div class="bg-theme mr-3 pt-3 pb-2 mb-0">
+              <h3 class="logo"><a href="#" class="text-secondary logo"> BMU<span class="small"></span></a></h3>
+         </div>
+      </div>
+      <!--Logo-->
+
+      <!--Header Menu-->
+      <div class="col-sm-9 header-menu pt-2 pb-0">
+          <div class="row">
+
+              <div class="col-sm-4 col-8 pl-0">
+                  <span class="menu-icon" onclick="toggle_sidebar()">
+                      <span id="sidebar-toggle-btn"></span>
+                  </span>
+
+                  <div class="menu-icon">
+                      <a class="" href="#" onclick="toggle_dropdown(this); return false" role="button" class="dropdown-toggle">
+                          <i class="fa fa-bell"></i>
+                          <span class="badge badge-danger">5</span>
+                      </a>
+                      <div class="dropdown dropdown-left bg-white shadow border">
+                          <a class="dropdown-item" href="#"><strong>Notifications</strong></a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                              <div class="media">
+                                  <div class="align-self-center mr-3 rounded-circle notify-icon bg-primary">
+                                      <i class="fa fa-bookmark"></i>
+                                  </div>
+                                  <div class="media-body">
+                                      <h6 class="mt-0"><strong>Meeting</strong></h6>
+                                      <p>You have a meeting by 8:00</p>
+                                      <small class="text-success">09:23am</small>
+                                  </div>
+                              </div>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                              <div class="media">
+                                  <div class="align-self-center mr-3 rounded-circle notify-icon bg-secondary">
+                                      <i class="fa fa-link"></i>
+                                  </div>
+                                  <div class="media-body">
+                                      <h6 class="mt-0"><strong>Events</strong></h6>
+                                      <p>Launching new programme</p>
+                                      <small class="text-success">09:23am</small>
+                                  </div>
+                              </div>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                              <div class="media">
+                                  <div class="align-self-center mr-3 rounded-circle notify-icon bg-warning">
+                                      <i class="fa fa-user"></i>
+                                  </div>
+                                  <div class="media-body">
+                                      <h6 class="mt-0"><strong>Personnel</strong></h6>
+                                      <p>New student arrival</p>
+                                      <small class="text-success">09:23am</small>
+                                  </div>
+                              </div>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item text-center link-all" href="#">See all notifications ></a>
+                      </div>
+                  </div>
+                  <!--Notication icon-->
+
+                  <!--Inbox icon-->
+                  <span class="menu-icon inbox">
+                      <a class="" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fa fa-envelope"></i>
+                          <span class="badge badge-danger">4</span>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-left mt-10 animated zoomInDown" aria-labelledby="dropdownMenuLink3">
+                          <a class="dropdown-item" href="#"><strong>Unread messages</strong></a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                              <div class="media">
+                                  <img class="align-self-center mr-3 rounded-circle" src="assets/img/profile.jpg" width="50px" height="50px" alt="Generic placeholder image">
+                                  <div class="media-body">
+                                      <h6 class="mt-0"><strong>Pothala Kumar</strong></h6>
+                                      <p>How are you?</p>
+                                      <small class="text-success">09:23am</small>
+                                  </div>
+                              </div>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <div class="dropdown-divider"></div>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item text-center link-all" href="#">View all messages</a>
+                      </div>
+                  </span>
+                  <span class="menu-icon">
+                      <i class="fa fa-th-large"></i>
+                  </span>
+              </div>
+
+              <div class="col-sm-8 col-4 text-right flex-header-menu justify-content-end">
+                  <div class="search-rounded mr-3">
+                      <input type="text" class="form-control search-box" placeholder="Enter keywords.." />
+                  </div>
+                  <div class="mr-4">
+                      <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <!-- <img src="" alt="Profile" class="rounded-circle" width="40px" height="40px"> -->
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right mt-13" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="#"><i class="fa fa-user pr-2"></i> Profile</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#"><i class="fa fa-th-list pr-2"></i> Tasks</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#"><i class="fa fa-book pr-2"></i> Projects</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#"><i class="fa fa-power-off pr-2"></i> Logout</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--Header Menu-->
+  </div>
+  <!--Header-->
+
+  <!--Main Content-->
+
+  <div class="row main-content">
+      <!--Sidebar left-->
+      <div class="col-sm-3 col-xs-6 sidebar pl-0">
+          <div class="inner-sidebar mr-3">
+              <div class="avatar text-center">
+                  <img src="../../../../assets/user3.gif" alt="" class="rounded-circle" style="text-align: center; justify-content: center;"/>
+                  <p><strong>Pavan Kumar</strong></p>
+                  <span class="text-primary small"><strong>Admin</strong></span>
+
+              </div>
+
+              <div class="sidebar-menu-container">
+                <ul class="sidebar-menu mt-4 mb-4">
+
+
+                      <button type="button" class="btn btn-info icon-round m-3 shadow" data-toggle="tooltip" data-placement="top" title="Add another node" data-bs-toggle="modal" data-bs-target="#exampleModalToggle1" style="float: left;
+                      ">
+                          <i class="fa fa-plus mr-3"></i> Add New
+                      </button>
+
+                </ul>
+            </div>
+
+            <div class="sidebar-menu-container" style="margin-top: 6rem;">
+                  <ul class="sidebar-menu mt-4 mb-4" *ngFor = "let node of nodes[0]?.Nodes">
+
+                     <li class="parent">
+                        <a href="" class="">
+                          <i class="las la-info-circle mr-3"></i>
+                          <span class="none">{{node}}</span>
+                        </a>
+
+                  </ul>
+              </div>
+
+            </div>
+      </div>
+      <!--Sidebar left-->
+
+      <!--main content-->
+      <div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+
+        <!-- BreadCrumb -->
+          <h5 class="mb-3" ><strong>
+            <nav aria-label="breadcrumb" style="background: none;">
+              <ol class="breadcrumb breadcrumb-arrow" style="background: none;">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">SCHOOLS</a></li>
+                  <!-- <li class="breadcrumb-item active" aria-current="page">CSE</li> -->
+              </ol>
+          </nav>
+          </strong></h5>
+
+          <!-- Relationships Container -->
+          <div class="mt-1 mb-5 button-container">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background: #dd2f6e;">
+                    <h6 style="color: white; font-weight: 500;">Relationships
+                      <button data-bs-toggle="modal" data-bs-target="#exampleModalToggle4" style="float: right; margin-top: 6.5px; background: none; border:none"><i class = "fas fa-plus-circle" style="color: white;"></i></button>
+                    </h6>
+
+                </div>
+                <div class="card-body">
+                  <table width = "100%">
+                    <thead >
+                      <tr  >
+                        <td class="btn btn-secondary mr-3 mb-3 p-2" *ngFor= "let relation of relations[0]?.Relations" style=" font-style: italic; font-weight: bold;" >{{relation}}</td>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-1 mb-3 button-container">
+            <div class="row pl-0">
+              <button type="button" class="btn btn-success icon-round shadow" data-toggle="tooltip" data-placement="top" title="Add another school" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2" style="transform: translateY(87px);">
+                <i class="fa fa-plus"></i>
+            </button>
+
+              <div class="container">
+              <div class="row" >
+
+                <!-- Connect School With Relation -->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-4 mb-3 ml-5" data-bs-toggle="modal" data-bs-target="#exampleModalToggle3" style="cursor: pointer;" >
+                  <div class="fc-bg-success border shadow">
+                      <div class="media p-4">
+                          <div class="align-self-center mr-3 rounded-circle notify-icon bg-theme">
+                              <i class="fa fa-user"></i>
+                          </div>
+                          <div class="media-body pl-2" >
+                              <h3 class="mt-0 mb-0"><strong>Add New</strong></h3>
+                              <p><small class=" bc-description text-white">Connect Relation</small></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+
+              <!-- ADD SCHOOL FORM  -->
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel"></h5>
+
+      </div> -->
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Add School</h2>
+          <div class="form-element">
+            <label for="schoolName">School Name</label>
+            <input type="text" id="schoolName" placeholder="Enter School Name" (change)="schoolName($event)" >
+          </div>
+          <div class="form-element mt-5">
+            <button type="submit" (click)="postSchool()" >Add School</button>
+          </div>
+          <p class="text-success mt-2" >{{postSchoolOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- SCHOOLS DISPLAY -->
+                <div style="cursor: pointer;" class="col-lg-3 col-md-4 col-sm-6 col-3 mb-3 ml-5" *ngFor="let x of bml[0]?.Relation" (click)="school(x.Name)" >
+                  <div class="bg-white border shadow" >
+                      <div class="media p-3">
+                          <div class="align-self-center mr-3 rounded-circle notify-icon bg-theme">
+                              <i class="fa fa-user"></i>
+                          </div>
+                          <div class="media-body pl-2" >
+                              <h3 class="mt-0 mb-0"><strong>{{x.Name}}</strong></h3>
+                              <p><small class="text-muted bc-description">{{x.FullName}}</small></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+            </div>
+        </div>
+
+
+<!-- PROGRAMMS DISPLAY -->
+        <div class="mt-5 ml-2 mb-5 button-container"  *ngIf = "showProg">
+          <div class="card shadow-sm">
+              <div class="card-header" style="background: #dd2f6e;" >
+                  <h6 style="color: white; font-weight: 500;">Programmes
+                    <button class="" data-bs-toggle="modal" data-bs-target="#exampleModalToggle7" style="float: right; font-size: 1.3rem; background: #d80d0d; border:none; margin-bottom:.5rem">
+                      <i class="fas fa-trash" style = "color: white"></i>
+                    </button>
+
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModalToggle8" style="float: right; font-size: 1.3rem; background: none; border:none; margin-bottom:.5rem"><i class = "fas fa-plus-circle" style="color:white"></i></button>
+
+                  </h6>
+              </div>
+              <div class="card-body">
+                <table width = "100%">
+                  <thead>
+                    <tr >
+                     <td *ngFor = "let prog of programmes[0]?.Relation" (click)="program(prog.Name)" > <button type="button" class="btn btn-info p-2">{{prog.Name}}</button> </td>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+          </div>
+      </div>
+
+      <!-- DEPARTMENTS DISPLAY -->
+      <div class="mt-5 ml-2 mb-5 button-container"  *ngIf = "showDept">
+        <div class="card shadow-sm">
+            <div class="card-header" style="background: #dd2f6e;" >
+                <h6 style="color: white; font-weight: 500;">Departments
+                  <button class="" data-bs-toggle="modal" data-bs-target="#exampleModalToggle7" style="float: right; font-size: 1.3rem; background: #d80d0d; border:none; margin-bottom:.5rem">
+                    <i class="fas fa-trash" style = "color: white"></i>
+                  </button>
+
+                  <button data-bs-toggle="modal" data-bs-target="#exampleModalToggle8" style="float: right; font-size: 1.3rem; background: none; border:none; margin-bottom:.5rem"><i class = "fas fa-plus-circle" style="color:white"></i></button>
+
+                </h6>
+            </div>
+            <div class="card-body">
+              <table width = "100%">
+                <thead>
+                  <tr >
+                   <td *ngFor = "let dept of departments[0]?.Nodes" (click) = "department(dept)" > <button type="button" class="btn btn-warning p-2">{{dept}}</button> </td>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+        </div>
+    </div>
+
+
+<!-- STUDENT LIST -->
+
+          <div class="mt-4 mb-4 p-3">
+               <div class="mt-1 mb-3 p-2 button-container" >
+                <h6>Lists</h6>
+                <div class="accordion" id="accordionExample">
+                    <div class="card shadow">
+                        <div class="card-header accordion-header p-1" id="headingOne">
+                            <h5 class="mb-0 panel-title">
+                                <button  class="btn btn-link accordion-btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Student List
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample"  >
+                            <div class="card-body p-3 text-justify accordion-body">
+                              <div class="product-list">
+
+                                <div class="row border-bottom mb-4">
+                                    <div class="col-sm-8 pt-2"><h6 class="mb-4 bc-header">Students</h6></div>
+                                    <div class="col-sm-4 text-right pb-3">
+                                      <button type="button" class = "add mr-3" data-bs-toggle="modal" data-bs-target="#exampleModalToggle"> Add Student <span class="las la-plus"></span></button>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalToggle10"  class="btn btn-danger icon-round shadow pull-right">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive product-list">
+
+                                  <table class="table table-bordered table-striped table-hover mt-0" id="productList">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px;" class="p-0 pr-4 align-middle">
+                                                <div class="form-check-box cta">
+
+                                                </div>
+                                            </th>
+                                            <th>Name</th>
+                                            <th>Registration No.</th>
+
+                                            <th>Contact</th>
+                                            <th>Email</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor = "let std of students[0]?.Student">
+                                        <tr>
+                                            <td style="width: 10px;" class="p-0 pr-1 align-middle">
+                                                <div class="form-check-box cta">
+                                                    <span class="color1">
+                                                        <input type="checkbox" id="order1">
+                                                        <label for="order1"></label>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle">{{std?.Name}}</td>
+                                            <td class="align-middle">
+                                                {{std?.RegistrationId}}
+                                            </td>
+                                            <td class="align-middle">{{std?.Contact}}</td>
+                                            <td class="align-middle">{{std?.Email}}</td>
+                                            <td class="p-2 text-center"> <button type="button" class="btn btn-info p-2" data-toggle="modal" data-target="#exampleModalCenter" (click) ="StdDetails(std?.Name)">View Details</button></td>
+                                        </tr>
+                                </table>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  <!-- FACULTY LIST -->
+                    <div class="card shadow">
+                        <div class="card-header accordion-header p-1" id="headingTwo">
+                            <h5 class="mb-0 panel-title">
+                                <button class="btn btn-link accordion-btn collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Faculty List
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body p-3 text-justify accordion-body">
+                              <div class="product-list">
+
+                                <div class="row border-bottom mb-4">
+                                  <div class="col-sm-8 pt-2"><h6 class="mb-4 bc-header">Faculty</h6></div>
+                                  <div class="col-sm-4 text-right pb-3">
+                                    <button type="button" class = "add mr-3" data-bs-toggle="modal" data-bs-target="#exampleModalToggle9"> Add Faculty <span class="las la-plus"></span></button>
+                                      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalToggle11"  class="btn btn-danger icon-round shadow pull-right">
+                                          <i class="fas fa-trash"></i>
+                                      </button>
+
+                                      <div class="clearfix"></div>
+                                  </div>
+                              </div>
+
+                                <div class="table-responsive product-list">
+
+                                  <table class="table table-bordered table-striped mt-0" id="productList">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px;" class="p-0 pr-4 align-middle">
+                                                <div class="form-check-box cta">
+
+                                                </div>
+                                            </th>
+                                            <th>Name</th>
+
+
+                                            <th>Contact</th>
+                                            <th>Email</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor = "let faculty of faculties">
+                                        <tr>
+                                            <td style="width: 10px;" class="p-0 pr-1 align-middle">
+                                                <div class="form-check-box cta">
+                                                    <span class="color1">
+                                                        <input type="checkbox" id="order1">
+                                                        <label for="order1"></label>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle">{{faculty?.Faculty.Name}}</td>
+                                            <td class="align-middle">
+                                                {{faculty?.Faculty.Contact}}
+                                            </td>
+                                            <td class="align-middle">{{faculty?.Faculty.Email}}</td>
+
+
+                                        </tr>
+
+
+                                </table>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+          </div>
+
+          <!-- COURSES DISPLAY -->
+          <div class="col-sm-6" style="margin-left: 17rem;">
+
+            <div class="mt-5 mb-3 p-4 button-container  bg-white shadow-sm border">
+                <h6>Courses
+
+                  <button class="" data-bs-toggle="modal" data-bs-target="#exampleModalToggle6" style="float: right; font-size: 1.3rem; background: none; border:none; margin-bottom:.5rem">
+                    <i class="fas fa-trash" style = "color:#d80d0d"></i>
+                  </button>
+
+                  <button data-bs-toggle="modal" data-bs-target="#exampleModalToggle5" style="float: right; font-size: 1.3rem; background: none; border:none; margin-bottom:.5rem"><i class = "fas fa-plus-circle" style="color: rgb(7, 163, 54);"></i></button>
+
+                </h6>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Course Title</th>
+                                <th>Credits</th>
+                                <th>Instructor</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor = "let course of courses">
+                            <tr>
+                                <td>{{course.Course}}</td>
+                                <td>{{course.Credits}}</td>
+                                <td>{{course.Faculty}}</td>
+                                <td><label class="badge badge-warning badge-pill">Half-Sem</label></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+          </div>
+      </div>
+  </div>
+
+  <!--Main Content-->
+
+</div>
+
+<!-- STUDENTS FORM -->
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Add Student</h2>
+          <div class="form-element">
+            <label for="studentName">Student Name</label>
+            <input type="text" id="studentName" placeholder="Enter Student Name" (change) = "stdName($event)">
+          </div>
+          <div class="form-element">
+            <label for="studentName">Student RegsitrationID</label>
+            <input type="text" id="studentReg" placeholder="Enter Student Registraiton ID" (change) = "stdId($event)" >
+          </div>
+          <div class="form-element">
+            <label for="studentName">Student Contact</label>
+            <input type="text" id="studentContact" placeholder="Enter Student Contact" (change) = "stdContact($event)" >
+          </div>
+          <div class="form-element">
+            <label for="studentName">Student Email</label>
+            <input type="text" id="studentEmail" placeholder="Enter Student Email" (change) = "stdEmail($event)" >
+          </div>
+          <div class="form-element mt-5">
+            <button type="button" (click)="postStudent()" >Add Student</button>
+          </div>
+          <p class="text-success mt-2" >{{postStudentOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ADD NEW NODE SIDEBAR FORM -->
+
+<div class="modal fade" id="exampleModalToggle1" aria-hidden="true" aria-labelledby="exampleModalToggleLabel1" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Add Node</h2>
+          <div class="form-element">
+            <label for="nodeLabel">Node Label</label>
+            <input type="text" id="nodeLabel" placeholder="Enter Node Label" (change)="nodeLabel($event)"  >
+          </div>
+          <div class="form-element">
+            <label for="nodeLabel">Node Name</label>
+            <input type="text" id="nodeName" placeholder="Enter Node Name" (change)="nodeName($event)"  >
+          </div>
+          <div class="form-element mt-5">
+            <button type="button" (click) = "postNode()">Add Node</button>
+          </div>
+          <p class="text-success mt-2" >{{postNodeOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- CONNECT WITH SCHOOL FORM -->
+<div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Connect School</h2>
+          <div class="form-element">
+            <label for="universityLabel">Connect With University Label</label>
+            <input type="text" id="universityLabel" placeholder="Enter University Label" (change)="connect($event)"  >
+          </div>
+          <div class="form-element">
+            <label for="universityName">Connect With University Name</label>
+            <input type="text" id="universityName" placeholder="Enter University Name" (change)="connectName($event)"  >
+          </div>
+          <div class="form-element">
+            <label for="schoolName">School Name</label>
+            <input type="text" id="schoolName" placeholder="Enter School Name" (change)="schoolName($event)" >
+          </div>
+
+
+          <div class="form-element mt-5">
+            <button type="button" (click)="postConnection()" >Connect</button>
+          </div>
+          <p class="text-success mt-2" >{{postConnOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ADD RELATIONSHIP FORM -->
+<div class="modal fade" id="exampleModalToggle4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel4" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Add Relationship</h2>
+          <div class="form-element">
+            <label for="firstNode">First Node</label>
+            <input type="text" id="firstNode" placeholder="Enter First Node" (change) ="firstNode($event)" >
+          </div>
+          <div class="form-element">
+            <label for="secondNode">Second Node</label>
+            <input type="text" id="secondNode" placeholder="Enter Second Node" (change) ="SecondNode($event)" >
+          </div>
+          <div class="form-element">
+            <label for="relationLabel">Relation Label</label>
+            <input type="text" id="relationLabel" placeholder="Enter Relation Label" (change) ="relation($event)" >
+          </div>
+          <div class="form-element">
+            <label for="firstNodeInstance">First Node Instance</label>
+            <input type="text" id="firstNodeInstance" placeholder="Enter First Node Instance" (change) ="firstName($event)" >
+          </div>
+          <div class="form-element">
+            <label for="secondNodeInstance">Second Node Instance</label>
+            <input type="text" id="secondNodeInstance" placeholder="Enter Second Node Instance" (change) ="secondName($event)" >
+          </div>
+          <div class="form-element mt-5">
+            <button type="type" (click)="postRelation()" >Add </button>
+          </div>
+          <p class="text-success mt-2" >{{postRelationOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ADD COURSE FORM -->
+<div class="modal fade" id="exampleModalToggle5" aria-hidden="true" aria-labelledby="exampleModalToggleLabel5" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Add Course</h2>
+          <div class="form-element">
+            <label for="courseName">Course Title</label>
+            <input type="text" id="courseName" placeholder="Enter Course Title"  (change)="courseName($event)">
+          </div>
+          <div class="form-element">
+            <label for="courseCredits">Course Credits   </label>
+            <input type="text" id="courseCredits" placeholder="Enter Course Credits" (change)="courseCredits($event)" >
+          </div>
+          <div class="form-element mt-5">
+            <button type="button" (click) = "postCourse()">Add </button>
+            <p class="text-success mt-2" >{{postCourseOutput}}</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DELETE COURSE FORM -->
+<div class="modal fade" id="exampleModalToggle6" aria-hidden="true" aria-labelledby="exampleModalToggleLabel6" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Delete Course</h2>
+
+          <div class="form-element">
+            <label for="courseTitle">Course Title</label>
+            <input type="text" id="courseTitle" placeholder="Enter Course Title" (change)="courseName($event)" >
+          </div>
+          <div class="form-element mt-5">
+            <button type="button" (click)="delteCourse()" >Delete </button>
+          </div>
+          <p class="text-danger mt-2" >{{deleteCouOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DELETE PROGRAM FORM -->
+<div class="modal fade" id="exampleModalToggle7" aria-hidden="true" aria-labelledby="exampleModalToggleLabel7" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Delete Program</h2>
+
+          <div class="form-element">
+            <label for="programTitle">Program Title</label>
+            <input type="text" id="programTitle" placeholder="Enter Program Title" (change)="progName($event)" >
+          </div>
+          <div class="form-element mt-5">
+            <button type="button" (click)="DeleteProgramme()" >Delete </button>
+          </div>
+          <p class="text-danger mt-2" >{{postDelProgOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ADD PROGRAM FORM -->
+<div class="modal fade" id="exampleModalToggle8" aria-hidden="true" aria-labelledby="exampleModalToggleLabel8" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Add Program</h2>
+          <div class="form-element">
+            <label for="programTitle">Program Title</label>
+            <input type="text" id="programTitle" placeholder="Enter Program Title" (change)="progName1($event)" >
+          </div>
+          <div class="form-element mt-5">
+            <button type="button" (click)="AddProgamme()" >Add </button>
+          </div>
+          <p class="text-danger mt-2" >{{postaddProgOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ADD FACULTY FORM -->
+<div class="modal fade" id="exampleModalToggle9" aria-hidden="true" aria-labelledby="exampleModalToggleLabel9" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Add Faculty</h2>
+          <div class="form-element">
+            <label for="studentName">Faculty Name</label>
+            <input type="text" id="FacultyName" placeholder="Enter Faculty Name" (change) = "facName($event)">
+          </div>
+
+          <div class="form-element">
+            <label >Faculty Contact</label>
+            <input type="text" id="FacultyContact" placeholder="Enter Faculty Contact" (change) = "facContact($event)" >
+          </div>
+          <div class="form-element">
+            <label >Faculty Email</label>
+            <input type="text" id="FacultyEmail" placeholder="Enter Faculty Email" (change) = "facEmail($event)" >
+          </div>
+
+          <div class="form-element mt-5">
+            <button type="button" (click)="postFaculty()" >Add Faculty</button>
+          </div>
+          <p class="text-success mt-2" >{{postFacultyOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DELETE STUDENT FORM -->
+<div class="modal fade" id="exampleModalToggle10" aria-hidden="true" aria-labelledby="exampleModalToggleLabel10" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Remove Student</h2>
+          <div class="form-element">
+            <label for="nodeStudent">Node</label>
+            <input type="text" id="nodeStudent" placeholder="Enter Node" (change) = "delNode($event)">
+          </div>
+          <div class="form-element">
+            <label for="studentName">Student Name</label>
+            <input type="text" id="studentName" placeholder="Enter Student Name" (change) = "delName($event)">
+          </div>
+          <div class="form-element mt-5">
+            <button type="button" (click)="Delete()" >Remove</button>
+          </div>
+          <p class="text-success mt-2" >{{DeleteOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DELETE FACULTY FORM -->
+<div class="modal fade" id="exampleModalToggle11" aria-hidden="true" aria-labelledby="exampleModalToggleLabel11" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+        <div class="form">
+          <h2>Remove Faculty</h2>
+          <div class="form-element">
+            <label for="nodeFaculty">Node</label>
+            <input type="text" id="nodeFaculty" placeholder="Enter Node" (change) = "delNode($event)">
+          </div>
+          <div class="form-element">
+            <label for="facultyName">Faculty Name</label>
+            <input type="text" id="facultyName" placeholder="Enter Faculty Name" (change) = "delName($event)">
+          </div>
+          <div class="form-element mt-5">
+            <button type="button" (click)="Delete()" >Remove</button>
+          </div>
+          <p class="text-success mt-2" >{{DeleteOutput}}</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center text-green  " style="font-size: larger ; font-weight: 600; margin-left: 140px; align-items: center;" id="exampleModalLongTitle"> STUDENT DETAILS </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+                  <table class="table table-warning table-hover">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Student Name</th>
+                        <td>{{studentNAME}}</td>
+                      </tr>
+
+                      <tr>
+                        <th scope="row">Student RegstrationID</th>
+                        <td>{{studentID}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Student Email</th>
+                        <td>{{studentEmail}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Student Contact</th>
+                        <td>{{studentContact}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Batch</th>
+                        <td>{{batch}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Course</th>
+                        <td>{{studentCourse}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Programme</th>
+                        <td>{{studentProgramme}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Department</th>
+                        <td>{{studentDepartment}}</td>
+                      </tr>
+
+
+
+                      <!-- <tr>
+                        <th scope="row">Batch</th>
+                        <td>{{data[0][1].Batch}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"  >Courses</th>
+                        <td>{{data[1][0].Course}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"  >Programme</th>
+                        <td>{{data[2][0].Programme.Name}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"  >Department</th>
+                        <td>{{data[3][0].Department.Name}}</td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+                </div>
+	</div>
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
