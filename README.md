@@ -1,6 +1,6 @@
 # University Managment Application
 
-Please Refer the Report.pdf for the complete Demo.
+Please Refer the Report.pdf for the complete Demo.\n
 Please Refer the code in src/app .
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
